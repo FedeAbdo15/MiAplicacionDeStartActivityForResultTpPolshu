@@ -28,6 +28,9 @@ public class MainActivity2LaRevancha extends AppCompatActivity {
             Intent intentYaIngreseElNombrePa = new Intent(this, MainActivity.class);
             String miNombre = edtNombreDelAmigazoIngresado.getText().toString();
             intentYaIngreseElNombrePa.putExtra("nombre del amigazo", miNombre);
+            setResult(RESULT_OK, intentYaIngreseElNombrePa);
+            finish();
+
         });
     }
 

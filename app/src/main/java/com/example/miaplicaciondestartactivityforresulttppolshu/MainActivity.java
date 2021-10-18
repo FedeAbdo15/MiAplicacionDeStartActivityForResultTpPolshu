@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int CODIGO_PARA_LA_FOTO = 69;
     public static final int CODIGO_PARA_EL_AMIGO = 420;
+    public static final int CODIGO_PARA_EL_NOMBRE = 119;
 
     Button btnTomarFotografias;
     Button btnPresentarAmigo;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         });
         btnPonerTuNombre.setOnClickListener(v -> {
             Intent intentDeMiNombre = new Intent(this, MainActivity2LaRevancha.class);
-            startActivity(intentDeMiNombre);
+            startActivityForResult(intentDeMiNombre, CODIGO_PARA_EL_NOMBRE);
         });
     }
 
@@ -75,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
                 String nombre = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                 mostrarNombre(nombre);
                 break;
+            case CODIGO_PARA_EL_NOMBRE:
+                String nombreAmigazo = data.getExtras().getString("nombre del amigazo");
+                mostrarNombre(nombreAmigazo);
         }
     }
 
